@@ -2,29 +2,36 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .mainContainer {
     width: 100%;
     height: 100vh;
-    padding: 2rem;
-    background-color: #03045E;
+    padding: 1rem;
+    background: linear-gradient(135deg, #03045E 0%, #023047 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .toDoContainer {
     width: 100%;
     max-width: 32.5rem;
     background: #fcf2de;
-    margin: 6rem auto 1.2rem;
+    margin: 0 auto;
     padding: 2.5rem 2rem 3.5rem;
-    border-radius: 0.8rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
+
 .toDoContainer h2 {
-    color: black;
+    color: #03045E;
     display: flex;
     align-items: center;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.8rem;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .row {
@@ -34,7 +41,8 @@
     background: #daceb7;
     border-radius: 2rem;
     padding-left: 1.2rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.8rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .taskButton {
@@ -44,10 +52,19 @@
     border-radius: 2rem;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: 600;
+    color: #03045E;
+    transition: all 0.3s ease;
 }
 
 .taskButton:hover {
     background: rgba(208, 202, 181, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.taskButton:active {
+    transform: translateY(0);
 }
 
 .taskInput {
@@ -56,69 +73,102 @@
     outline: none;
     background: transparent;
     padding: 0.9rem;
+    font-size: 1rem;
+    color: #03045E;
+}
+
+.taskInput::placeholder {
+    color: rgba(3, 4, 94, 0.5);
 }
 
 .taskList {
     list-style: none;
-    padding: 0.75rem 0.5rem 0.75rem 1.2rem;
+    padding: 0;
     user-select: none;
     font-size: 1.15rem;
-
 }
+
+.actualList {
+    list-style: none;
+    padding: 0;
+}
+
 .actualList li {
     list-style: none;
-    padding: 0.75rem 0.5rem 0.75rem 1.2rem;
+    padding: 0.9rem 0.5rem 0.9rem 3.5rem;
     user-select: none;
     font-size: 1.15rem;
     cursor: pointer;
     position: relative;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.actualList li:hover {
+    background: rgba(218, 206, 183, 0.3);
 }
 .actualList li::before {
     content: " ";
     border-radius: 50%;
-    background-image: url(/ToDo-List/images/radio.png);
+    background-image: url(../images/radio.png);
     position: absolute;
     height: 1.7rem;
     width: 1.7rem;
-    background-color:rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     background-size: cover;
     background-position: center;
     top: 0.9rem;
     left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .actualList li.checkedItem {
     text-decoration: line-through;
-    color: rgba(0, 0, 0, 0.5);
-    background-image: url(/ToDo-List/images/check.png);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .actualList li.checkedItem::before {
     content: " ";
     border-radius: 50%;
-    background-image: url(/ToDo-List/images/check.png);
+    background-image: url(../images/check.png);
     position: absolute;
     height: 1.7rem;
     width: 1.7rem;
-    background-color:rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     background-size: cover;
     background-position: center;
     top: 0.9rem;
     left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.actualList li.checkedItem:hover {
+    background: rgba(218, 206, 183, 0.2);
 }
 
 .actualList li span {
     position: absolute;
-    right: 0;
-    top: 0.4rem;
-    width: 2.2rem;
-    height: 2.2rem;
-    font-size: 1.2rem;
-    line-height: 2.5rem;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
     text-align: center;
-    align-items: center;
-}
-.actualList li span:hover {
-    background: rgba(208, 202, 181, 0.9);
+    color: #03045E;
+    transition: all 0.2s ease;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actualList li span:hover {
+    background: rgba(208, 202, 181, 0.7);
     cursor: pointer;
+    transform: scale(1.1);
+}
+
+.actualList li span:active {
+    transform: scale(0.95);
 }

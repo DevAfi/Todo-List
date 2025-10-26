@@ -1,6 +1,13 @@
 const inputField = document.getElementById("inputBox");
 const mainListContainer = document.getElementById("actualListID");
 
+// Allow adding tasks with Enter key
+inputField.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        addTask();
+    }
+});
+
 function addTask(){
     if (inputField.value.trim() === "") {
         alert("Cannot pass an empty task");
